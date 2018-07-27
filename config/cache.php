@@ -68,11 +68,17 @@ return [
             ],
         ],
 
-        'redis' => [
+        'c_redis' => [
             'driver' => 'redis',
             'connection' => 'default',
+            'prefix' => str_slug(env('APP_NAME', 'laravel'), '_').'_cache_default',
         ],
 
+        'c_session' => [
+            'driver' => 'redis',
+            'connection' => 'rdb_session',
+            'prefix' => str_slug(env('APP_NAME', 'laravel'), '_').'_cache_session',
+        ],
     ],
 
     /*
