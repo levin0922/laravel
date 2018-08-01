@@ -14,7 +14,7 @@ return [
     */
 
     'defaults' => [
-        'guard' => 'web',
+        'guard' => str_slug(env('APP_NAME', 'laravel'), '_').'web',
         'passwords' => 'users',
     ],
 
@@ -36,12 +36,12 @@ return [
     */
 
     'guards' => [
-        'web' => [
+        str_slug(env('APP_NAME', 'laravel'), '_').'web' => [
             'driver' => 'session',
             'provider' => 'users',
         ],
 
-        'api' => [
+        str_slug(env('APP_NAME', 'laravel'), '_').'api' => [
             'driver' => 'token',
             'provider' => 'users',
         ],
